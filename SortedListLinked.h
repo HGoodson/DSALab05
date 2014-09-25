@@ -105,6 +105,7 @@ NextNode<T>** SortedListLinked<T>::find(T* item)
    //DO THIS
    //loop to find the correct location to insert/remove item
 
+<<<<<<< HEAD
    T* item_2 = (curr->getNext)->getItem();
    int compare = (*compare_items) (item, item_2);
 
@@ -116,6 +117,14 @@ NextNode<T>** SortedListLinked<T>::find(T* item)
      compare = (*compare_items) (item, item_2);
 
      }
+=======
+
+
+
+
+
+
+>>>>>>> 9daadbc6ad9fc6300ed2941c819445a6053bd7ad
 
 
    //could simply return prev and compute curr, but prev might be null
