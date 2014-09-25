@@ -189,25 +189,24 @@ void SortedListLinked<T>::remove(T* item)
    int compare = (*compare_items) (item, curr->getItem());
 
    //determine whether the item to be removed is present
-   if (                       )
+   if (compare != 0)                     )
    {
       return;  //item not present
    }
 
    //DO THIS
    //removing the top item (check prev)
-   if (         )
+   if (compare > 0)
    {
-
+     prev->setNext(NULL);      
 
 
 
    }
    else  //general remove
    {
-
-
-
+     T* next = curr->getNext();
+     prev->setNext(next);
 
    }
 
