@@ -107,22 +107,32 @@ NextNode<T>** SortedListLinked<T>::find(T* item)
 
    T* item_2 = (curr->getItem());
 
+  cout << "item_2 made" << endl;
+
    while(curr != NULL)
    {
+    //cout << "before compare" << endl;
 
+    int compare = (*compare_items) (item, item_2);    
 
-    int compare = (*compare_items) (item, item_2);     
+   //cout << "compare computed" << endl;
 
     if(compare > 0)
     {
+   //cout << "inside if loop" << endl;
      prev = curr;
+    //if(curr == NULL) cout << "curr = NULL" << endl; 
+    //cout << "curr != NULL" << endl;  
      curr = curr->getNext();
+   if(curr==NULL) break; 
+   //cout << "curr->getNext() == NULL" << endl;
      item_2 = curr->getItem();
+  //cout << "after item_2" << endl;
       }
 
-     else if(compare == 0) break;
-
      else break;
+
+   //cout << "compare function done" << endl;
 
      }
 
@@ -140,6 +150,7 @@ template < class T >
 void SortedListLinked<T>::add(T* item)
 {
    NextNode<T>* node = new NextNode<T>(item);
+ cout << "Node created" << endl;
 
    //special case: adding to an empty list
    if (sze == 0)
@@ -154,16 +165,20 @@ void SortedListLinked<T>::add(T* item)
    NextNode<T>* curr = nodes[1];
    delete[] nodes;
 
+   //cout << "nodes created" << endl;
+
    //DO THIS
    //adding to the top of the list (check prev)
    if (prev == NULL)
    { cout << "6" << endl;
      head = node;
      node->setNext(curr);
+    item->displayCD();
    }
    else    //general add
    {
-    cout << "5" << endl;
+    cout << "general add" << endl;
+    item->displayCD();
      prev->setNext(node);
      node->setNext(curr);
 
@@ -206,15 +221,17 @@ void SortedListLinked<T>::remove(T* item)
 
    //DO THIS
    //removing the top item (check prev)
-   if (compare > 0)
+   if (prev == NULL)
    {
-     curr = head;      
-     head = head->getNext();
+     //curr = head;      
+     head = curr->getNext();
 
    }
    else  //general remove
    {
      //next = curr->getNext();
+     //if(curr->getNext() == NULL) break;
+
      prev->setNext(curr->getNext());
 
    }

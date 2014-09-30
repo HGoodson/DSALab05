@@ -25,9 +25,10 @@ void addCDs(ListArray<CD>* list, ListBox<CD>* lb)
       CD* cd = iter->next();
     cout << "before addItem" << endl;
       lb->addItem(cd);
+      cd->displayCD();
      }
 
-
+   cout << "delete iter" << endl;
    delete iter;
 }
 
@@ -64,6 +65,8 @@ int main(int argc, char* argv[])
   cout << "before add" << endl;
 
    addCDs(cds, lstCDs);
+
+
 
   cout << "2" << endl;
 
